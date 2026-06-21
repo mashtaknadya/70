@@ -1,0 +1,31 @@
+/*Создайте такую структуру:
+Файл original.txt
+Жесткая ссылка hard.txt
+Символическая ссылка soft.txt
+Затем:
+Измените содержимое original.txt на "New data"
+Выполните cat hard.txt и cat soft.txt
+Напишите все команды и что вывели cat*/
+
+# создаём оригинальный файл
+echo "Hello" > original.txt
+
+# создаём жёсткую ссылку
+ln original.txt hard.txt
+
+# создаём символическую ссылку
+ln -s original.txt soft.txt
+
+# изменяем содержимое original.txt на "New data"
+echo "New data" > original.txt
+
+# проверяем
+cat hard.txt
+cat soft.txt
+что выведут cat:
+
+cat hard.txt → New data
+(жёсткая ссылка указывает на тот же инод, данные изменились)
+
+cat soft.txt → New data
+(символическая ссылка ведёт по имени original.txt, которое теперь связано с обновлённым инодом)
