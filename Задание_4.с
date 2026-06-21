@@ -1,0 +1,20 @@
+/*Создайте файл source.txt. Создайте символическую ссылку source.soft на него. Переместите файл source.txt в другую директорию 
+(например, mv source.txt ../). Проверьте, работает ли ссылка source.soft. Напишите все команды и результат.*/
+
+# создаём файл source.txt
+echo "hello" > source.txt
+
+# создаём символическую ссылку source.soft на source.txt
+ln -s source.txt source.soft
+
+# перемещаем source.txt в родительскую директорию
+mv source.txt ../
+
+# проверяем ссылку
+cat source.soft
+результат:
+
+после перемещения файла source.txt в ../, символическая ссылка source.soft перестаёт работать;
+
+cat source.soft выдаст ошибку:
+cat: source.soft: No such file or directory
